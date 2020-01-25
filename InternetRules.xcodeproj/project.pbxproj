@@ -12,6 +12,8 @@
 		F54505B923DC66E0003779B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54505B823DC66E0003779B2 /* ViewController.swift */; };
 		F54505BE23DC66E2003779B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54505BD23DC66E2003779B2 /* Assets.xcassets */; };
 		F54505C123DC66E2003779B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54505BF23DC66E2003779B2 /* LaunchScreen.storyboard */; };
+		F54505C923DC6956003779B2 /* Rule+BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54505C823DC6956003779B2 /* Rule+BundleExtension.swift */; };
+		F54505CB23DC6A70003779B2 /* rules.json in Resources */ = {isa = PBXBuildFile; fileRef = F54505CA23DC6A6F003779B2 /* rules.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		F54505BD23DC66E2003779B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F54505C023DC66E2003779B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F54505C223DC66E2003779B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F54505C823DC6956003779B2 /* Rule+BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rule+BundleExtension.swift"; sourceTree = "<group>"; };
+		F54505CA23DC6A6F003779B2 /* rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rules.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +61,10 @@
 				F54505B423DC66E0003779B2 /* AppDelegate.swift */,
 				F54505B623DC66E0003779B2 /* SceneDelegate.swift */,
 				F54505B823DC66E0003779B2 /* ViewController.swift */,
+				F54505C823DC6956003779B2 /* Rule+BundleExtension.swift */,
 				F54505BD23DC66E2003779B2 /* Assets.xcassets */,
 				F54505BF23DC66E2003779B2 /* LaunchScreen.storyboard */,
+				F54505CA23DC6A6F003779B2 /* rules.json */,
 				F54505C223DC66E2003779B2 /* Info.plist */,
 			);
 			path = InternetRules;
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54505CB23DC6A70003779B2 /* rules.json in Resources */,
 				F54505C123DC66E2003779B2 /* LaunchScreen.storyboard in Resources */,
 				F54505BE23DC66E2003779B2 /* Assets.xcassets in Resources */,
 			);
@@ -137,6 +144,7 @@
 				F54505B923DC66E0003779B2 /* ViewController.swift in Sources */,
 				F54505B523DC66E0003779B2 /* AppDelegate.swift in Sources */,
 				F54505B723DC66E0003779B2 /* SceneDelegate.swift in Sources */,
+				F54505C923DC6956003779B2 /* Rule+BundleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

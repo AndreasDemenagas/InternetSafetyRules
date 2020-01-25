@@ -13,9 +13,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Internet Rules"
+
         
+        view.backgroundColor = .white
         
-        view.backgroundColor = .red
+        let rules = Bundle.main.decode(type: [Rule].self, from: "rules.json")
+        
+        for rule in rules {
+            print(rule.text)
+        }
     }
 
 
