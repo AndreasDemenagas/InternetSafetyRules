@@ -15,6 +15,7 @@
 		F54505C923DC6956003779B2 /* Rule+BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54505C823DC6956003779B2 /* Rule+BundleExtension.swift */; };
 		F54505CB23DC6A70003779B2 /* rules.json in Resources */ = {isa = PBXBuildFile; fileRef = F54505CA23DC6A6F003779B2 /* rules.json */; };
 		F59D0A9A23DDB1F700CB31B2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59D0A9923DDB1F700CB31B2 /* CardView.swift */; };
+		F59D0A9C23DDB68600CB31B2 /* Extension_LayoutAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59D0A9B23DDB68600CB31B2 /* Extension_LayoutAnchors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F54505C823DC6956003779B2 /* Rule+BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rule+BundleExtension.swift"; sourceTree = "<group>"; };
 		F54505CA23DC6A6F003779B2 /* rules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rules.json; sourceTree = "<group>"; };
 		F59D0A9923DDB1F700CB31B2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F59D0A9B23DDB68600CB31B2 /* Extension_LayoutAnchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension_LayoutAnchors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				F54505B623DC66E0003779B2 /* SceneDelegate.swift */,
 				F54505B823DC66E0003779B2 /* MainController.swift */,
 				F59D0A9923DDB1F700CB31B2 /* CardView.swift */,
+				F59D0A9B23DDB68600CB31B2 /* Extension_LayoutAnchors.swift */,
 				F54505C823DC6956003779B2 /* Rule+BundleExtension.swift */,
 				F54505BD23DC66E2003779B2 /* Assets.xcassets */,
 				F54505BF23DC66E2003779B2 /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 				F54505B523DC66E0003779B2 /* AppDelegate.swift in Sources */,
 				F54505B723DC66E0003779B2 /* SceneDelegate.swift in Sources */,
 				F54505C923DC6956003779B2 /* Rule+BundleExtension.swift in Sources */,
+				F59D0A9C23DDB68600CB31B2 /* Extension_LayoutAnchors.swift in Sources */,
 				F59D0A9A23DDB1F700CB31B2 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
