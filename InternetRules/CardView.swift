@@ -20,6 +20,7 @@ class CardView: UIView {
         layer.shadowOpacity = 0.5
         layer.shadowOffset = .zero
         layer.shadowRadius = 10
+        isUserInteractionEnabled = false 
         
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
     }

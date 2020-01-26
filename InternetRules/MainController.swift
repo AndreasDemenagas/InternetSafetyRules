@@ -62,10 +62,7 @@ class MainController: UIViewController {
         view.backgroundColor = .black
         
         setupViews()
-        
-        
-        //setupCards()
-        //Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(setupBackground), userInfo: nil, repeats: false)
+        setupCards()
     }
     
     @objc fileprivate func handleStart() {
@@ -99,35 +96,43 @@ class MainController: UIViewController {
     }
     
     func presentDetailsLabel() {
-    
         UIView.animate(withDuration: 1, delay: 1, options: .curveEaseIn, animations: {
             
             self.detailsLabel.alpha = 1
             
         }) { (_) in
-            
             Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { (_) in
-                
                 UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
-                    
                     self.detailsLabel.alpha = 0
-                    
                 }) { (_) in
-                    
-                    print("Game intro complete...")
-                    
+                    self.animateBackgroundColor()
                 }
             }
         }
     }
     
+    
+    func animateBackgroundColor() {
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(setupBackground), userInfo: nil, repeats: false)
+    }
+    
     @objc fileprivate func setupBackground() {
-        UIView.animate(withDuration: 2) {
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
             self.view.backgroundColor = .white
+        }) { (_) in
+            self.animateCardsIn()
+        }
+    }
+    
+    func animateCardsIn() {
+        self.cardView.isUserInteractionEnabled = true 
+        UIView.animate(withDuration: 0.5) {
+            self.cardView.alpha = 1
         }
     }
     
     fileprivate func setupCards() {
+        cardView.alpha = 0
         view.addSubview(cardView)
         cardView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 300).isActive = true
