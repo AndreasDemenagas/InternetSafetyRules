@@ -17,7 +17,7 @@ struct Rule: Decodable {
 extension Bundle {
     func decode<T: Decodable>(type: T.Type, from file: String) -> T {
         guard let url = self.url(forResource: file, withExtension: nil) else {
-            fatalError()
+            fatalError("Failed to get url")
         }
         
         guard let data = try? Data(contentsOf: url) else {
