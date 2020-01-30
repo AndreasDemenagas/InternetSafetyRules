@@ -8,7 +8,34 @@
 
 import UIKit
 
-class CardView: UIView {
+protocol SwipingDelegate {
+    func didSwipe()
+}
+
+class CardView: UIView, SwipingDelegate {
+    
+    func didSwipe() {
+        UIView.animate(withDuration: 1) {
+            self.alpha = 1
+        }
+    }
+    
+    let label: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.boldSystemFont(ofSize: 16)
+        lbl.textColor = .white
+        lbl.numberOfLines = 0
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textAlignment = .justified
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        return lbl
+    }()
+    
+    var rule: Rule? {
+        didSet {
+            label.text = rule?.text
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,13 +43,20 @@ class CardView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .black
         layer.cornerRadius = 20
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = .zero
-        layer.shadowRadius = 10
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOpacity = 0.5
+//        layer.shadowOffset = .zero
+//        layer.shadowRadius = 10
         isUserInteractionEnabled = false 
         
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+        
+        setupLabel()
+    }
+    
+    fileprivate func setupLabel() {
+        addSubview(label)
+        label.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 20, left: 20, bottom: 20, right: 20), size: .zero)
     }
     
     required init?(coder: NSCoder) {

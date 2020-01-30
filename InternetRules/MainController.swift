@@ -8,11 +8,13 @@
 
 import UIKit
 
+// TODO: -- Re-enable shadow in the cardView //
+
 class MainController: UIViewController {
     
-    let rules = Bundle.main.decode(type: [Rule].self, from: "rules.json")
-    
-    let cardView = CardView()
+    let rules = Bundle.main.decode(type: [Rule].self, from: "rules.json").reversed()
+     
+    var cards: [CardView] = []
     
     let titleLabel: UILabel = {
         let lbl = UILabel()
@@ -91,15 +93,12 @@ class MainController: UIViewController {
                 self.presentDetailsLabel()
                 
             })
-            
         })
     }
     
     func presentDetailsLabel() {
         UIView.animate(withDuration: 1, delay: 1, options: .curveEaseIn, animations: {
-            
             self.detailsLabel.alpha = 1
-            
         }) { (_) in
             Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { (_) in
                 UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
@@ -110,7 +109,6 @@ class MainController: UIViewController {
             }
         }
     }
-    
     
     func animateBackgroundColor() {
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(setupBackground), userInfo: nil, repeats: false)
@@ -125,19 +123,26 @@ class MainController: UIViewController {
     }
     
     func animateCardsIn() {
-        self.cardView.isUserInteractionEnabled = true 
-        UIView.animate(withDuration: 0.5) {
-            self.cardView.alpha = 1
+        for cardView in cards {
+            cardView.isUserInteractionEnabled = true
+            UIView.animate(withDuration: 0.5) {
+                cardView.alpha = 1
+            }
         }
     }
     
     fileprivate func setupCards() {
-        cardView.alpha = 0
-        view.addSubview(cardView)
-        cardView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        cardView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        rules.forEach { rule in
+            let cardView = CardView()
+            cardView.rule = rule
+            cards.append(cardView)
+            cardView.alpha = 0
+            view.addSubview(cardView)
+            cardView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+            cardView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+            cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        }
     }
     
     fileprivate func setupViews() {
