@@ -8,18 +8,8 @@
 
 import UIKit
 
-protocol SwipingDelegate {
-    func didSwipe()
-}
+class CardView: UIView {
 
-class CardView: UIView, SwipingDelegate {
-    
-    func didSwipe() {
-        UIView.animate(withDuration: 1) {
-            self.alpha = 1
-        }
-    }
-    
     let label: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.boldSystemFont(ofSize: 16)
@@ -37,16 +27,14 @@ class CardView: UIView, SwipingDelegate {
         }
     }
     
+    var mainController: MainController?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .black
         layer.cornerRadius = 20
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOpacity = 0.5
-//        layer.shadowOffset = .zero
-//        layer.shadowRadius = 10
         isUserInteractionEnabled = false 
         
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
@@ -77,7 +65,8 @@ class CardView: UIView, SwipingDelegate {
             
             if card.center.x < 75 {
                 UIView.animate(withDuration: 0.3) {
-                    print("swipe left")
+                    guard let rule = self.rule else { return }
+                    self.mainController?.animateDetailsIn(with: rule)
                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
                     card.alpha = 0
                 }
@@ -86,7 +75,7 @@ class CardView: UIView, SwipingDelegate {
             
             if card.center.x > view.frame.width - 75 {
                 UIView.animate(withDuration: 0.3) {
-                    print("swipe right")
+                    print("next card...")
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                     card.alpha = 0
                 }
@@ -101,3 +90,8 @@ class CardView: UIView, SwipingDelegate {
         }
     }
 }
+
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOpacity = 0.5
+//        layer.shadowOffset = .zero
+//        layer.shadowRadius = 10

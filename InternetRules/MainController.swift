@@ -58,6 +58,26 @@ class MainController: UIViewController {
         btn.addTarget(self, action: #selector(handleStart), for: .touchUpInside)
         return btn
     }()
+    
+    let leftImageView: UIImageView = {
+        let image = UIImage(systemName: "arrow.left")?.withRenderingMode(.alwaysTemplate)
+        let iv = UIImageView(image: image)
+        iv.alpha = 0
+        iv.tintColor = .black
+        iv.layer.zPosition = -1
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
+    
+    let rightImageView: UIImageView = {
+        let image = UIImage(systemName: "arrow.right")?.withRenderingMode(.alwaysTemplate)
+        let iv = UIImageView(image: image)
+        iv.alpha = 0
+        iv.tintColor = .black
+        iv.layer.zPosition = -1
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +85,8 @@ class MainController: UIViewController {
         
         setupViews()
         setupCards()
+        
+        setupArrows()
     }
     
     @objc fileprivate func handleStart() {
@@ -129,12 +151,45 @@ class MainController: UIViewController {
                 cardView.alpha = 1
             }
         }
+        
+        [leftImageView, rightImageView].forEach { (view) in
+            UIView.animate(withDuration: 0.5) {
+                view.alpha = 1
+            }
+        }
+        
+        animateArrows()
+    }
+    
+    func animateArrows() {
+        Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { (_) in
+            UIView.animate(withDuration: 0.6,
+            animations: {
+                self.leftImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+                self.rightImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+            },
+            completion: { _ in
+                UIView.animate(withDuration: 0.6) {
+                    self.leftImageView.transform = CGAffineTransform.identity
+                    self.rightImageView.transform = CGAffineTransform.identity
+                }
+            })
+        }
+    }
+    
+    func animateDetailsIn(with rule: Rule) {
+        let details = DetailsView()
+        details.rule = rule
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (_) in
+            self.present(details, animated: true, completion: nil)
+        }
     }
     
     fileprivate func setupCards() {
         rules.forEach { rule in
             let cardView = CardView()
             cardView.rule = rule
+            cardView.mainController = self 
             cards.append(cardView)
             cardView.alpha = 0
             view.addSubview(cardView)
@@ -143,6 +198,20 @@ class MainController: UIViewController {
             cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
             cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         }
+    }
+    
+    fileprivate func setupArrows() {
+        view.addSubview(leftImageView)
+        leftImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        leftImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        leftImageView.bottomAnchor.constraint(equalTo: cards[0].topAnchor, constant: -20).isActive = true
+        leftImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        view.addSubview(rightImageView)
+        rightImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        rightImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        rightImageView.topAnchor.constraint(equalTo: cards[0].bottomAnchor, constant: 20).isActive = true
+        rightImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     fileprivate func setupViews() {
