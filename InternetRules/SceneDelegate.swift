@@ -8,6 +8,19 @@
 
 import UIKit
 
+class TController: UIViewController {
+    
+    let detailsView = UIView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+       
+    }
+    
+    
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

@@ -16,6 +16,8 @@ class MainController: UIViewController {
      
     var cards: [CardView] = []
     
+    var detailsView = DetailsView()
+    
     let titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont(name: "Futura", size: 48)
@@ -87,6 +89,7 @@ class MainController: UIViewController {
         setupCards()
         
         setupArrows()
+        setupDetails()
     }
     
     @objc fileprivate func handleStart() {
@@ -178,11 +181,27 @@ class MainController: UIViewController {
     }
     
     func animateDetailsIn(with rule: Rule) {
-        let details = DetailsView()
-        details.rule = rule
+        detailsView.rule = rule
+        
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (_) in
-            self.present(details, animated: true, completion: nil)
+            UIView.animate(withDuration: 1) {
+                self.detailsView.alpha = 1
+            }
         }
+        
+    }
+    
+    func handleCloseDetails() {
+        UIView.animate(withDuration: 1) {
+            self.detailsView.alpha = 0
+        }
+    }
+    
+    func setupDetails() {
+        detailsView.alpha = 0
+        detailsView.mainController = self 
+        view.addSubview(detailsView)
+        detailsView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 100, left: 35, bottom: 100, right: 35))
     }
     
     fileprivate func setupCards() {

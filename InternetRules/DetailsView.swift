@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsView: UIViewController {
+class DetailsView: UIView {
     
     let titleLabel: UILabel = {
         let lbl = UILabel()
@@ -49,6 +49,16 @@ class DetailsView: UIViewController {
         return lbl
     }()
     
+    let closeButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setImage(UIImage(named: "close")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btn.tintColor = .white
+        btn.addTarget(self, action: #selector(handleClose), for: .touchUpInside)
+        return btn
+    }()
+    
+    var mainController: MainController?
+    
     var rule: Rule? {
         didSet {
             ruleLabel.text = rule?.text
@@ -56,22 +66,35 @@ class DetailsView: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @objc func handleClose() {
+        mainController?.handleCloseDetails()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         
-        view.backgroundColor = .black
+        backgroundColor = .black
+        layer.cornerRadius = 20
+        layer.masksToBounds = true
         
-        view.addSubview(titleLabel)
-        titleLabel.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 175, left: 50, bottom: 10, right: 50), size: .init(width: .zero, height: 60))
+        addSubview(titleLabel)
+        titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 100, left: 50, bottom: 10, right: 50), size: .init(width: .zero, height: 60))
         
-        view.addSubview(ruleLabel)
+        addSubview(ruleLabel)
         ruleLabel.anchor(top: titleLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: titleLabel.trailingAnchor, size: .init(width: .zero, height: 50))
         
-        view.addSubview(separatorLine)
-        separatorLine.anchor(top: ruleLabel.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 50, left: 50, bottom: 0, right: 50), size: .init(width: .zero, height: 1))
+        addSubview(separatorLine)
+        separatorLine.anchor(top: ruleLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 50, left: 50, bottom: 0, right: 50), size: .init(width: .zero, height: 1))
         
-        view.addSubview(detailsLabel)
+        addSubview(detailsLabel)
         detailsLabel.anchor(top: separatorLine.bottomAnchor, leading: separatorLine.leadingAnchor, bottom: nil, trailing: separatorLine.trailingAnchor, padding: .init(top: 30, left: 0, bottom: 0, right: 0), size: .init(width: .zero, height: 300))
+        
+        addSubview(closeButton)
+        closeButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 10), size: .init(width: 70, height: 70))
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
