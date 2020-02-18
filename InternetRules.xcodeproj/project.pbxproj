@@ -64,11 +64,10 @@
 		F54505B323DC66E0003779B2 /* InternetRules */ = {
 			isa = PBXGroup;
 			children = (
-				F54505B423DC66E0003779B2 /* AppDelegate.swift */,
 				F54505B623DC66E0003779B2 /* SceneDelegate.swift */,
-				F59D0A9923DDB1F700CB31B2 /* CardView.swift */,
-				F54505B823DC66E0003779B2 /* MainController.swift */,
-				F528716523F07210004EEE6B /* DetailsView.swift */,
+				F54505B423DC66E0003779B2 /* AppDelegate.swift */,
+				F59ABC2423FC6D63002933BD /* Controllers */,
+				F59ABC2323FC6CFD002933BD /* Views */,
 				F59D0A9B23DDB68600CB31B2 /* Extension_LayoutAnchors.swift */,
 				F54505C823DC6956003779B2 /* Rule+BundleExtension.swift */,
 				F54505BD23DC66E2003779B2 /* Assets.xcassets */,
@@ -77,6 +76,23 @@
 				F54505C223DC66E2003779B2 /* Info.plist */,
 			);
 			path = InternetRules;
+			sourceTree = "<group>";
+		};
+		F59ABC2323FC6CFD002933BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F528716523F07210004EEE6B /* DetailsView.swift */,
+				F59D0A9923DDB1F700CB31B2 /* CardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F59ABC2423FC6D63002933BD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F54505B823DC66E0003779B2 /* MainController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

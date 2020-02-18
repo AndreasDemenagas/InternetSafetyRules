@@ -11,6 +11,7 @@ import UIKit
 struct Rule: Decodable {
     let id: String
     let text: String
+    let details: String 
 }
 
 

@@ -26,7 +26,6 @@ class DetailsView: UIView {
         lbl.text = "Be careful while using e-commerce and e-banking services."
         lbl.numberOfLines = 0
         lbl.lineBreakMode = .byWordWrapping
-        lbl.textAlignment = .justified
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -63,6 +62,7 @@ class DetailsView: UIView {
         didSet {
             ruleLabel.text = rule?.text
             titleLabel.text = rule?.id
+            detailsLabel.text = rule?.details
         }
     }
     
@@ -81,7 +81,7 @@ class DetailsView: UIView {
         titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 100, left: 50, bottom: 10, right: 50), size: .init(width: .zero, height: 60))
         
         addSubview(ruleLabel)
-        ruleLabel.anchor(top: titleLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: titleLabel.trailingAnchor, size: .init(width: .zero, height: 50))
+        ruleLabel.anchor(top: titleLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: titleLabel.trailingAnchor, size: .init(width: .zero, height: 70))
         
         addSubview(separatorLine)
         separatorLine.anchor(top: ruleLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 50, left: 50, bottom: 0, right: 50), size: .init(width: .zero, height: 1))

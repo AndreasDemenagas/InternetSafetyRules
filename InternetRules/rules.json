@@ -1,42 +1,52 @@
 [
     {
         "id": "1", 
-        "text": "Online friends must be ONLY those who we know in real life."
+        "text": "Online friends must be ONLY those who we know in real life.", 
+        "details": "You should avoid accepting follow / friend request from people you don't know, even if you share common followers - friends. "
     }, 
     {
         "id": "2", 
-        "text": "Don't go on a blind date!"
+        "text": "Don't go on a blind date!", 
+        "details": "It is important to stay away from people you don't know in real life. You should never start a conversation with them and NEVER agree to meet them in person, unless you are 1000% sure you will be safe."
     }, 
     {
         "id": "3", 
-        "text": "Never accept online \"challenges\"."
+        "text": "Never accept online \"challenges\".", 
+        "details": "Try to keep an eye out for intriguing online games and spam emails that could potentially infect your personal devices."
     }, 
     {
         "id": "4", 
-        "text": "If cyberbulled do NOT remain silent! Talk about it!"
+        "text": "If cyberbulled do NOT remain silent! Talk about it!", 
+        "details": "If you find yourself in a situation that you are cyber-bulled or extorted by someone, you should always seek for help. Even if you are too scared to talk to your parents, a teacher, a close friend or special bullying institute will always be there for you."
     },
     {
         "id": "5", 
-        "text": "Don't let yourself be tricked!"
+        "text": "Don't let yourself be tricked!", 
+        "details": "You should always think before doing - accepting - anything that you see online. Most of the times, if it seems to good to be true, it is probably a trap."
     },
     {
         "id": "6", 
-        "text": "Learn to create STRONG passwords!"
+        "text": "Learn to create STRONG passwords!", 
+        "details": "You must learn to specify passwords, of at least 8 characters, while avoiding common phrases and names or important dates - like birthdays - at all costs."
     },
     {
         "id": "7", 
-        "text": "Be careful while using e-commerce and e-banking services."
+        "text": "Be careful while using e-commerce and e-banking services.", 
+        "details": "When performing online shopping & banking services you should make sure you use appropriate infrastructures that provide complete security. Never give your banking or credit-card information to a website that doesn't look trustworthy."
     },
     {
         "id": "8", 
-        "text": "Say YES to the dark web of knowledge. Say NO to the dark web of crime!"
+        "text": "Say YES to the dark web of knowledge. Say NO to the dark web of crime!",
+        "details": "If browsing the dark web, try to stick to educational and informative content, while staying away from all illegal activities that take place there. Remember: The dark web is only good when used correctly."
     },
     {
         "id": "9", 
-        "text": "All in good measure!"
+        "text": "All in good measure!", 
+        "details": "Try to avoiding spending countless hours in front of a computer screen browsing the internet or playing online games. Even if you find yourself looking at a computer, try to spend that time doing something productive, like learning a new language, skill, or even how to program!"
     },
     {
         "id": "10", 
-        "text": "Protect the data you share... and who you are sharing them with."
+        "text": "Protect the data you share... and who you are sharing them with.", 
+        "details": "Avoid uploading dozens of images of yourself and others online. Remember that even if you try to delte something from the online world, it will ALWAYS stay there. Don't upload material that might bring you in a tough situation in the future."
     }
 ]

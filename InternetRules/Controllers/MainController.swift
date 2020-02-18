@@ -182,7 +182,6 @@ class MainController: UIViewController {
     
     func animateDetailsIn(with rule: Rule) {
         detailsView.rule = rule
-        
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (_) in
             UIView.animate(withDuration: 1) {
                 self.detailsView.alpha = 1

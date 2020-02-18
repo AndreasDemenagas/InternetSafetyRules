@@ -16,7 +16,6 @@ class CardView: UIView {
         lbl.textColor = .white
         lbl.numberOfLines = 0
         lbl.lineBreakMode = .byWordWrapping
-        lbl.textAlignment = .justified
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
