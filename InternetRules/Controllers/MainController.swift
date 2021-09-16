@@ -23,6 +23,7 @@ class MainController: UIViewController {
         lbl.font = UIFont(name: "Futura", size: 48)
         lbl.textColor = .white
         lbl.text = "10 Internet Rules"
+        lbl.adjustsFontSizeToFitWidth = true
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
